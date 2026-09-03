@@ -1,4 +1,5 @@
 ﻿using DiarioSenac.Data;
+using DiarioSenac.Business;
 using DiarioSenac.Model;
 
 namespace DiarioSenac.Classes;
@@ -7,6 +8,7 @@ public class MenuPrincipal
 {
     public Conexao bdconexao = new Conexao();
     public UsuarioDAO usuarioDAO = new UsuarioDAO();
+    private readonly RegistroBusiness registroBusiness = new RegistroBusiness();
 
     public void Menu()
     {
@@ -54,7 +56,6 @@ public class MenuPrincipal
         } while (escolha != 0);
     }
 
-    // ============== MENU DE USUÁRIOS ==============
 
     public void MenuUsuarios()
     {
@@ -298,7 +299,6 @@ public class MenuPrincipal
         Console.WriteLine("Usuário removido com sucesso!");
     }
 
-    // ============== MENU DE REGISTROS ==============
 
     public void MenuRegistros()
     {
@@ -400,20 +400,8 @@ public class MenuPrincipal
         Console.Write("Título: ");
         string titulo = Console.ReadLine() ?? string.Empty;
 
-        if (string.IsNullOrWhiteSpace(titulo))
-        {
-            Console.WriteLine("Título não pode estar vazio.");
-            return;
-        }
-
         Console.Write("Conteúdo: ");
         string conteudo = Console.ReadLine() ?? string.Empty;
-
-        if (string.IsNullOrWhiteSpace(conteudo))
-        {
-            Console.WriteLine("Conteúdo não pode estar vazio.");
-            return;
-        }
 
         Registro registro = new Registro
         {
@@ -424,7 +412,16 @@ public class MenuPrincipal
             Usuario = null!
         };
 
-        bdconexao.InserirRegistro(registro);
+        try
+        {
+            registroBusiness.Validar(registro);
+            bdconexao.InserirRegistro(registro);
+        }
+        catch (ArgumentException ex)
+        {
+            Console.WriteLine(ex.Message);
+            return;
+        }
 
         Console.WriteLine();
         Console.WriteLine("Registro cadastrado com sucesso!");
@@ -502,8 +499,6 @@ public class MenuPrincipal
 
         Console.WriteLine("Registro removido com sucesso!");
     }
-
-    // ============== MÉTODO DE VALIDAÇÃO ==============
 
     private bool ValidarSenhaUsuario(Usuario usuario)
     {

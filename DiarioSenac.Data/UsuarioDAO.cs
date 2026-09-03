@@ -16,6 +16,7 @@ public class UsuarioDAO
     {
         using var context = new DiarioSenacContext();
         return context.Usuarios
+            .Include(u => u.Registros)
             .OrderBy(u => u.Id)
             .ToList();
     }
@@ -35,6 +36,7 @@ public class UsuarioDAO
             return;
 
         usuarioExistente.Nome = usuario.Nome;
+        usuarioExistente.Senha = usuario.Senha;
         context.SaveChanges();
     }
 

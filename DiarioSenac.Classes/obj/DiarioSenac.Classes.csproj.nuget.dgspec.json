@@ -103,6 +103,9 @@
           "net8.0": {
             "targetAlias": "net8.0",
             "projectReferences": {
+              "C:\\workplace\\DesenvolvedorWeb\\DiarioSenac\\DiarioSenac.Business\\DiarioSenac.Business.csproj": {
+                "projectPath": "C:\\workplace\\DesenvolvedorWeb\\DiarioSenac\\DiarioSenac.Business\\DiarioSenac.Business.csproj"
+              },
               "C:\\workplace\\DesenvolvedorWeb\\DiarioSenac\\DiarioSenac.Data\\DiarioSenac.Data.csproj": {
                 "projectPath": "C:\\workplace\\DesenvolvedorWeb\\DiarioSenac\\DiarioSenac.Data\\DiarioSenac.Data.csproj"
               },

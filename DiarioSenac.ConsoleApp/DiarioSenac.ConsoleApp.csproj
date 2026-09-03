@@ -1,6 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <ItemGroup>
+    <ProjectReference Include="..\DiarioSenac.Business\DiarioSenac.Business.csproj" />
     <ProjectReference Include="..\DiarioSenac.Classes\DiarioSenac.Classes.csproj" />
     <ProjectReference Include="..\DiarioSenac.Data\DiarioSenac.Data.csproj" />
     <ProjectReference Include="..\DiarioSenac.Model\DiarioSenac.Model.csproj" />
@@ -12,5 +13,12 @@
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
   </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="9.0.0">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+  </ItemGroup>
 
 </Project>

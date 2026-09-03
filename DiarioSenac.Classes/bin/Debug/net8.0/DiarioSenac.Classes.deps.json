@@ -8,6 +8,7 @@
     ".NETCoreApp,Version=v8.0": {
       "DiarioSenac.Classes/1.0.0": {
         "dependencies": {
+          "DiarioSenac.Business": "1.0.0",
           "DiarioSenac.Data": "1.0.0",
           "DiarioSenac.Model": "1.0.0"
         },
