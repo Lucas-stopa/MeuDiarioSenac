@@ -1,4 +1,5 @@
 ﻿using DiarioSenac.Data;
+using DiarioSenac.Model;
 
 namespace DiarioSenac.Classes;
 

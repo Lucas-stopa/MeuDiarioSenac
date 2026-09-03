@@ -2,6 +2,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\DiarioSenac.Data\DiarioSenac.Data.csproj" />
+    <ProjectReference Include="..\DiarioSenac.Model\DiarioSenac.Model.csproj" />
   </ItemGroup>
 
   <PropertyGroup>

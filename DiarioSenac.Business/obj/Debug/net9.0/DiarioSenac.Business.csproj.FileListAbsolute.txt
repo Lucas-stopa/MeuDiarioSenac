@@ -1,0 +1,5 @@
+C:\workplace\DesenvolvedorWeb\DiarioSenac\DiarioSenac.Business\obj\Debug\net9.0\DiarioSenac.Business.GeneratedMSBuildEditorConfig.editorconfig
+C:\workplace\DesenvolvedorWeb\DiarioSenac\DiarioSenac.Business\obj\Debug\net9.0\DiarioSenac.Business.AssemblyInfoInputs.cache
+C:\workplace\DesenvolvedorWeb\DiarioSenac\DiarioSenac.Business\obj\Debug\net9.0\DiarioSenac.Business.AssemblyInfo.cs
+C:\workplace\DesenvolvedorWeb\DiarioSenac\DiarioSenac.Business\obj\Debug\net9.0\DiarioSenac.Business.csproj.CoreCompileInputs.cache
+C:\workplace\DesenvolvedorWeb\DiarioSenac\DiarioSenac.Business\obj\Debug\net9.0\DiarioSenac.Business.sourcelink.json

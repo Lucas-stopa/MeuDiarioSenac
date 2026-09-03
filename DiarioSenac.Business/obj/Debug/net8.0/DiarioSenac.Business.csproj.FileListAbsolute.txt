@@ -1,0 +1,16 @@
+C:\workplace\DesenvolvedorWeb\DiarioSenac\DiarioSenac.Business\bin\Debug\net8.0\DiarioSenac.Business.deps.json
+C:\workplace\DesenvolvedorWeb\DiarioSenac\DiarioSenac.Business\bin\Debug\net8.0\DiarioSenac.Business.dll
+C:\workplace\DesenvolvedorWeb\DiarioSenac\DiarioSenac.Business\bin\Debug\net8.0\DiarioSenac.Business.pdb
+C:\workplace\DesenvolvedorWeb\DiarioSenac\DiarioSenac.Business\bin\Debug\net8.0\DiarioSenac.Model.dll
+C:\workplace\DesenvolvedorWeb\DiarioSenac\DiarioSenac.Business\bin\Debug\net8.0\DiarioSenac.Model.pdb
+C:\workplace\DesenvolvedorWeb\DiarioSenac\DiarioSenac.Business\obj\Debug\net8.0\DiarioSenac.Business.csproj.AssemblyReference.cache
+C:\workplace\DesenvolvedorWeb\DiarioSenac\DiarioSenac.Business\obj\Debug\net8.0\DiarioSenac.Business.GeneratedMSBuildEditorConfig.editorconfig
+C:\workplace\DesenvolvedorWeb\DiarioSenac\DiarioSenac.Business\obj\Debug\net8.0\DiarioSenac.Business.AssemblyInfoInputs.cache
+C:\workplace\DesenvolvedorWeb\DiarioSenac\DiarioSenac.Business\obj\Debug\net8.0\DiarioSenac.Business.AssemblyInfo.cs
+C:\workplace\DesenvolvedorWeb\DiarioSenac\DiarioSenac.Business\obj\Debug\net8.0\DiarioSenac.Business.csproj.CoreCompileInputs.cache
+C:\workplace\DesenvolvedorWeb\DiarioSenac\DiarioSenac.Business\obj\Debug\net8.0\DiarioSenac.Business.sourcelink.json
+C:\workplace\DesenvolvedorWeb\DiarioSenac\DiarioSenac.Business\obj\Debug\net8.0\DiarioSe.AD1358A5.Up2Date
+C:\workplace\DesenvolvedorWeb\DiarioSenac\DiarioSenac.Business\obj\Debug\net8.0\DiarioSenac.Business.dll
+C:\workplace\DesenvolvedorWeb\DiarioSenac\DiarioSenac.Business\obj\Debug\net8.0\refint\DiarioSenac.Business.dll
+C:\workplace\DesenvolvedorWeb\DiarioSenac\DiarioSenac.Business\obj\Debug\net8.0\DiarioSenac.Business.pdb
+C:\workplace\DesenvolvedorWeb\DiarioSenac\DiarioSenac.Business\obj\Debug\net8.0\ref\DiarioSenac.Business.dll

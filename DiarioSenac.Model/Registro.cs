@@ -1,4 +1,4 @@
-namespace DiarioSenac.Data;
+namespace DiarioSenac.Model;
 
 public class Registro
 {

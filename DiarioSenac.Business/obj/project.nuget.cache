@@ -1,0 +1,12 @@
+{
+  "version": 2,
+  "dgSpecHash": "gz10um8Xuuk=",
+  "success": true,
+  "projectFilePath": "C:\\workplace\\DesenvolvedorWeb\\DiarioSenac\\DiarioSenac.Business\\DiarioSenac.Business.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\Prog_Sis\\.nuget\\packages\\microsoft.netcore.app.ref\\8.0.24\\microsoft.netcore.app.ref.8.0.24.nupkg.sha512",
+    "C:\\Users\\Prog_Sis\\.nuget\\packages\\microsoft.windowsdesktop.app.ref\\8.0.24\\microsoft.windowsdesktop.app.ref.8.0.24.nupkg.sha512",
+    "C:\\Users\\Prog_Sis\\.nuget\\packages\\microsoft.aspnetcore.app.ref\\8.0.24\\microsoft.aspnetcore.app.ref.8.0.24.nupkg.sha512"
+  ],
+  "logs": []
+}
