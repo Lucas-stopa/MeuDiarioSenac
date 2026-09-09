@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("DiarioSenac.Data")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+fbeb48f690c3f1065af75663d3f054c82f536646")]
 [assembly: System.Reflection.AssemblyProductAttribute("DiarioSenac.Data")]
 [assembly: System.Reflection.AssemblyTitleAttribute("DiarioSenac.Data")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("DiarioSenac.Model")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+86fc120db1663ab1a026afba22cc5d9fbd4c2ab7")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+fbeb48f690c3f1065af75663d3f054c82f536646")]
 [assembly: System.Reflection.AssemblyProductAttribute("DiarioSenac.Model")]
 [assembly: System.Reflection.AssemblyTitleAttribute("DiarioSenac.Model")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
