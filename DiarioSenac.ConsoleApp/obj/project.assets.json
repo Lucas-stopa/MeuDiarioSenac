@@ -1207,7 +1207,8 @@
         "dependencies": {
           "DiarioSenac.Business": "1.0.0",
           "DiarioSenac.Data": "1.0.0",
-          "DiarioSenac.Model": "1.0.0"
+          "DiarioSenac.Model": "1.0.0",
+          "DiarioSenac.Service": "1.0.0"
         },
         "compile": {
           "bin/placeholder/DiarioSenac.Classes.dll": {}
@@ -1241,6 +1242,21 @@
         },
         "runtime": {
           "bin/placeholder/DiarioSenac.Model.dll": {}
+        }
+      },
+      "DiarioSenac.Service/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v8.0",
+        "dependencies": {
+          "DiarioSenac.Business": "1.0.0",
+          "DiarioSenac.Data": "1.0.0",
+          "DiarioSenac.Model": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/DiarioSenac.Service.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/DiarioSenac.Service.dll": {}
         }
       }
     }
@@ -3519,6 +3535,11 @@
       "type": "project",
       "path": "../DiarioSenac.Model/DiarioSenac.Model.csproj",
       "msbuildProject": "../DiarioSenac.Model/DiarioSenac.Model.csproj"
+    },
+    "DiarioSenac.Service/1.0.0": {
+      "type": "project",
+      "path": "../DiarioSenac.Service/DiarioSenac.Service.csproj",
+      "msbuildProject": "../DiarioSenac.Service/DiarioSenac.Service.csproj"
     }
   },
   "projectFileDependencyGroups": {
@@ -3527,6 +3548,7 @@
       "DiarioSenac.Classes >= 1.0.0",
       "DiarioSenac.Data >= 1.0.0",
       "DiarioSenac.Model >= 1.0.0",
+      "DiarioSenac.Service >= 1.0.0",
       "Microsoft.EntityFrameworkCore.Design >= 9.0.0"
     ]
   },
@@ -3566,6 +3588,9 @@
             },
             "C:\\workplace\\DesenvolvedorWeb\\DiarioSenac\\DiarioSenac.Model\\DiarioSenac.Model.csproj": {
               "projectPath": "C:\\workplace\\DesenvolvedorWeb\\DiarioSenac\\DiarioSenac.Model\\DiarioSenac.Model.csproj"
+            },
+            "C:\\workplace\\DesenvolvedorWeb\\DiarioSenac\\DiarioSenac.Service\\DiarioSenac.Service.csproj": {
+              "projectPath": "C:\\workplace\\DesenvolvedorWeb\\DiarioSenac\\DiarioSenac.Service\\DiarioSenac.Service.csproj"
             }
           }
         }

@@ -1,9 +1,15 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>net9.0</TargetFramework>
+    <TargetFramework>net8.0</TargetFramework>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
   </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\DiarioSenac.Business\DiarioSenac.Business.csproj" />
+    <ProjectReference Include="..\DiarioSenac.Data\DiarioSenac.Data.csproj" />
+    <ProjectReference Include="..\DiarioSenac.Model\DiarioSenac.Model.csproj" />
+  </ItemGroup>
 
 </Project>

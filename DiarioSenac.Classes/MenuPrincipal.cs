@@ -1,14 +1,12 @@
-﻿using DiarioSenac.Data;
-using DiarioSenac.Business;
+﻿using DiarioSenac.Service;
 using DiarioSenac.Model;
 
 namespace DiarioSenac.Classes;
 
 public class MenuPrincipal
 {
-    public Conexao bdconexao = new Conexao();
-    public UsuarioDAO usuarioDAO = new UsuarioDAO();
-    private readonly RegistroBusiness registroBusiness = new RegistroBusiness();
+    private readonly UsuarioService _usuarioService = new UsuarioService();
+    private readonly RegistroService _registroService = new RegistroService();
 
     public void Menu()
     {
@@ -122,40 +120,27 @@ public class MenuPrincipal
         Console.Write("Nome do usuário: ");
         string nome = Console.ReadLine() ?? string.Empty;
 
-        if (string.IsNullOrWhiteSpace(nome))
-        {
-            Console.WriteLine("Nome não pode estar vazio.");
-            return;
-        }
-
         Console.Write("Senha: ");
         string senha = Console.ReadLine() ?? string.Empty;
 
-        if (string.IsNullOrWhiteSpace(senha))
+        try
         {
-            Console.WriteLine("Senha não pode estar vazia.");
-            return;
+            _usuarioService.CadastrarUsuario(nome, senha);
+            Console.ForegroundColor = ConsoleColor.Green;
+            Console.WriteLine("✓ Usuário cadastrado com sucesso!");
+            Console.ResetColor();
         }
-
-        if (senha.Length < 4)
+        catch (ArgumentException ex)
         {
-            Console.WriteLine("Senha deve ter no mínimo 4 caracteres.");
-            return;
+            Console.ForegroundColor = ConsoleColor.Red;
+            Console.WriteLine($"❌ {ex.Message}");
+            Console.ResetColor();
         }
-
-        Usuario usuario = new Usuario
-        {
-            Nome = nome,
-            Senha = senha
-        };
-
-        usuarioDAO.InserirUsuario(usuario);
-        Console.WriteLine("Usuário cadastrado com sucesso!");
     }
 
     public void ListarUsuarios()
     {
-        List<Usuario> usuarios = usuarioDAO.ListarUsuarios();
+        List<Usuario> usuarios = _usuarioService.ListarTodosUsuarios();
 
         if (usuarios.Count == 0)
         {
@@ -184,7 +169,7 @@ public class MenuPrincipal
             return;
         }
 
-        Usuario? usuario = usuarioDAO.BuscarUsuarioPorId(id);
+        Usuario? usuario = _usuarioService.BuscarUsuarioPorId(id);
 
         if (usuario == null)
         {
@@ -209,7 +194,7 @@ public class MenuPrincipal
             return;
         }
 
-        Usuario? usuario = usuarioDAO.BuscarUsuarioPorId(id);
+        Usuario? usuario = _usuarioService.BuscarUsuarioPorId(id);
 
         if (usuario == null)
         {
@@ -229,52 +214,34 @@ public class MenuPrincipal
             return;
         }
 
-        bool atualizou = false;
+        string? novoNome = null;
+        string? novaSenha = null;
 
         if (opcao == 1 || opcao == 3)
         {
             Console.Write("Novo nome do usuário: ");
-            string novoNome = Console.ReadLine() ?? string.Empty;
-
-            if (string.IsNullOrWhiteSpace(novoNome))
-            {
-                Console.WriteLine("Nome não pode estar vazio.");
-                return;
-            }
-
-            usuario.Nome = novoNome;
-            atualizou = true;
+            novoNome = Console.ReadLine();
         }
 
         if (opcao == 2 || opcao == 3)
         {
             Console.Write("Nova senha: ");
-            string novaSenha = Console.ReadLine() ?? string.Empty;
-
-            if (string.IsNullOrWhiteSpace(novaSenha))
-            {
-                Console.WriteLine("Senha não pode estar vazia.");
-                return;
-            }
-
-            if (novaSenha.Length < 4)
-            {
-                Console.WriteLine("Senha deve ter no mínimo 4 caracteres.");
-                return;
-            }
-
-            usuario.Senha = novaSenha;
-            atualizou = true;
+            novaSenha = Console.ReadLine();
         }
 
-        if (!atualizou)
+        try
         {
-            Console.WriteLine("Nenhum campo foi selecionado para atualização.");
-            return;
+            _usuarioService.AtualizarUsuario(id, novoNome, novaSenha);
+            Console.ForegroundColor = ConsoleColor.Green;
+            Console.WriteLine("✓ Usuário atualizado com sucesso!");
+            Console.ResetColor();
         }
-
-        usuarioDAO.AtualizarUsuario(usuario);
-        Console.WriteLine("Usuário atualizado com sucesso!");
+        catch (ArgumentException ex)
+        {
+            Console.ForegroundColor = ConsoleColor.Red;
+            Console.WriteLine($"❌ {ex.Message}");
+            Console.ResetColor();
+        }
     }
 
     public void RemoverUsuarioPorId()
@@ -287,16 +254,19 @@ public class MenuPrincipal
             return;
         }
 
-        Usuario? usuario = usuarioDAO.BuscarUsuarioPorId(id);
-
-        if (usuario == null)
+        try
         {
-            Console.WriteLine("Usuário não encontrado.");
-            return;
+            _usuarioService.RemoverUsuario(id);
+            Console.ForegroundColor = ConsoleColor.Green;
+            Console.WriteLine("✓ Usuário removido com sucesso!");
+            Console.ResetColor();
         }
-
-        usuarioDAO.RemoverUsuario(id);
-        Console.WriteLine("Usuário removido com sucesso!");
+        catch (ArgumentException ex)
+        {
+            Console.ForegroundColor = ConsoleColor.Red;
+            Console.WriteLine($"❌ {ex.Message}");
+            Console.ResetColor();
+        }
     }
 
 
@@ -304,7 +274,7 @@ public class MenuPrincipal
     {
         // Selecionar usuário primeiro
         Console.WriteLine("===== SELECIONAR USUÁRIO =====");
-        List<Usuario> usuarios = usuarioDAO.ListarUsuarios();
+        List<Usuario> usuarios = _usuarioService.ListarTodosUsuarios();
 
         if (usuarios.Count == 0)
         {
@@ -325,7 +295,7 @@ public class MenuPrincipal
             return;
         }
 
-        Usuario? usuarioSelecionado = usuarioDAO.BuscarUsuarioPorId(usuarioSelecionadoId);
+        Usuario? usuarioSelecionado = _usuarioService.BuscarUsuarioPorId(usuarioSelecionadoId);
 
         if (usuarioSelecionado == null)
         {
@@ -408,7 +378,7 @@ public class MenuPrincipal
 
             try
             {
-                registroBusiness.ValidarTitulo(titulo);
+                _registroService.ValidarTituloEmTempoReal(titulo);
                 tituloValido = true;
             }
             catch (ArgumentException ex)
@@ -430,7 +400,7 @@ public class MenuPrincipal
 
             try
             {
-                registroBusiness.ValidarConteudo(conteudo);
+                _registroService.ValidarConteudoEmTempoReal(conteudo);
                 conteudoValido = true;
             }
             catch (ArgumentException ex)
@@ -441,19 +411,9 @@ public class MenuPrincipal
             }
         }
 
-        Registro registro = new Registro
-        {
-            Titulo = titulo,
-            Data = DateTime.Now,
-            Conteudo = conteudo,
-            UsuarioId = usuario.Id,
-            Usuario = null!
-        };
-
         try
         {
-            registroBusiness.Validar(registro);
-            bdconexao.InserirRegistro(registro);
+            _registroService.CadastrarRegistro(usuario, titulo, conteudo);
             Console.ForegroundColor = ConsoleColor.Green;
             Console.WriteLine("✓ Registro cadastrado com sucesso!");
             Console.ResetColor();
@@ -468,8 +428,7 @@ public class MenuPrincipal
 
     public void ListarRegistros(Usuario usuario)
     {
-        List<Registro> todosRegistros = bdconexao.ListarRegistros();
-        List<Registro> registrosUsuario = todosRegistros.Where(r => r.UsuarioId == usuario.Id).ToList();
+        List<Registro> registrosUsuario = _registroService.ListarRegistrosDoUsuario(usuario.Id);
 
         if (registrosUsuario.Count == 0)
         {
@@ -500,9 +459,9 @@ public class MenuPrincipal
             return;
         }
 
-        Registro? registro = bdconexao.BuscarRegistroPorId(id);
+        Registro? registro = _registroService.BuscarRegistroPorId(id, usuario.Id);
 
-        if (registro == null || registro.UsuarioId != usuario.Id)
+        if (registro == null)
         {
             Console.WriteLine("Registro não encontrado ou não pertence a este usuário.");
             return;
@@ -526,17 +485,18 @@ public class MenuPrincipal
             return;
         }
 
-        Registro? registro = bdconexao.BuscarRegistroPorId(id);
-
-        if (registro == null || registro.UsuarioId != usuario.Id)
+        if (_registroService.RemoverRegistro(id, usuario.Id))
         {
-            Console.WriteLine("Registro não encontrado ou não pertence a este usuário.");
-            return;
+            Console.ForegroundColor = ConsoleColor.Green;
+            Console.WriteLine("✓ Registro removido com sucesso!");
+            Console.ResetColor();
         }
-
-        bdconexao.RemoverRegistro(id);
-
-        Console.WriteLine("Registro removido com sucesso!");
+        else
+        {
+            Console.ForegroundColor = ConsoleColor.Red;
+            Console.WriteLine("❌ Registro não encontrado ou não pertence a este usuário.");
+            Console.ResetColor();
+        }
     }
 
     private bool ValidarSenhaUsuario(Usuario usuario)
@@ -544,11 +504,6 @@ public class MenuPrincipal
         Console.Write("Digite a senha para acessar os registros: ");
         string senhaDigitada = Console.ReadLine() ?? string.Empty;
 
-        if (senhaDigitada == usuario.Senha)
-        {
-            return true;
-        }
-
-        return false;
+        return _usuarioService.ValidarSenhaUsuario(usuario, senhaDigitada);
     }
 }

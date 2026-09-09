@@ -2,7 +2,7 @@ using MySql.Data.MySqlClient;
 using DiarioSenac.Data;
 using DiarioSenac.Model;
 
-namespace DiarioSenac.Classes;
+namespace DiarioSenac.Data;
 
 public class RegistroDAO
 {

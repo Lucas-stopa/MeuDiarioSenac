@@ -18,3 +18,5 @@ C:\workplace\DesenvolvedorWeb\DiarioSenac\DiarioSenac.Classes\bin\Debug\net8.0\D
 C:\workplace\DesenvolvedorWeb\DiarioSenac\DiarioSenac.Classes\bin\Debug\net8.0\DiarioSenac.Model.pdb
 C:\workplace\DesenvolvedorWeb\DiarioSenac\DiarioSenac.Classes\bin\Debug\net8.0\DiarioSenac.Business.dll
 C:\workplace\DesenvolvedorWeb\DiarioSenac\DiarioSenac.Classes\bin\Debug\net8.0\DiarioSenac.Business.pdb
+C:\workplace\DesenvolvedorWeb\DiarioSenac\DiarioSenac.Classes\bin\Debug\net8.0\DiarioSenac.Service.dll
+C:\workplace\DesenvolvedorWeb\DiarioSenac\DiarioSenac.Classes\bin\Debug\net8.0\DiarioSenac.Service.pdb

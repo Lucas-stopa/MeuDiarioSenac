@@ -4,6 +4,7 @@
     <ProjectReference Include="..\DiarioSenac.Business\DiarioSenac.Business.csproj" />
     <ProjectReference Include="..\DiarioSenac.Data\DiarioSenac.Data.csproj" />
     <ProjectReference Include="..\DiarioSenac.Model\DiarioSenac.Model.csproj" />
+    <ProjectReference Include="..\DiarioSenac.Service\DiarioSenac.Service.csproj" />
   </ItemGroup>
 
   <PropertyGroup>
