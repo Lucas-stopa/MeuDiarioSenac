@@ -397,11 +397,49 @@ public class MenuPrincipal
 
     public void CadastrarRegistro(Usuario usuario)
     {
-        Console.Write("Título: ");
-        string titulo = Console.ReadLine() ?? string.Empty;
+        // Validar título
+        string titulo = string.Empty;
+        bool tituloValido = false;
 
-        Console.Write("Conteúdo: ");
-        string conteudo = Console.ReadLine() ?? string.Empty;
+        while (!tituloValido)
+        {
+            Console.Write("Título: ");
+            titulo = Console.ReadLine() ?? string.Empty;
+
+            try
+            {
+                registroBusiness.ValidarTitulo(titulo);
+                tituloValido = true;
+            }
+            catch (ArgumentException ex)
+            {
+                Console.ForegroundColor = ConsoleColor.Red;
+                Console.WriteLine($"❌ {ex.Message}");
+                Console.ResetColor();
+            }
+        }
+
+        // Validar conteúdo
+        string conteudo = string.Empty;
+        bool conteudoValido = false;
+
+        while (!conteudoValido)
+        {
+            Console.Write("Conteúdo: ");
+            conteudo = Console.ReadLine() ?? string.Empty;
+
+            try
+            {
+                registroBusiness.ValidarConteudo(conteudo);
+                conteudoValido = true;
+            }
+            catch (ArgumentException ex)
+            {
+                Console.ForegroundColor = ConsoleColor.Red;
+                Console.WriteLine($"❌ {ex.Message}");
+                Console.ResetColor();
+            }
+        }
 
         Registro registro = new Registro
         {
@@ -416,15 +454,16 @@ public class MenuPrincipal
         {
             registroBusiness.Validar(registro);
             bdconexao.InserirRegistro(registro);
+            Console.ForegroundColor = ConsoleColor.Green;
+            Console.WriteLine("✓ Registro cadastrado com sucesso!");
+            Console.ResetColor();
         }
         catch (ArgumentException ex)
         {
-            Console.WriteLine(ex.Message);
-            return;
+            Console.ForegroundColor = ConsoleColor.Red;
+            Console.WriteLine($"❌ {ex.Message}");
+            Console.ResetColor();
         }
-
-        Console.WriteLine();
-        Console.WriteLine("Registro cadastrado com sucesso!");
     }
 
     public void ListarRegistros(Usuario usuario)

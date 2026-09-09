@@ -42,4 +42,23 @@ public class RegistroBusiness
         ConteudoObrigatorio(registro);
         ConteudoTamanho(registro);
     }
+
+    // Métodos para validação individual de campos
+    public void ValidarTitulo(string titulo)
+    {
+        if (string.IsNullOrWhiteSpace(titulo))
+            throw new ArgumentException("O título é obrigatório.");
+        
+        if (titulo.Length > 50)
+            throw new ArgumentException("O título não pode ter mais de 50 caracteres.");
+    }
+
+    public void ValidarConteudo(string conteudo)
+    {
+        if (string.IsNullOrWhiteSpace(conteudo))
+            throw new ArgumentException("O conteúdo é obrigatório.");
+        
+        if (conteudo.Length > 3000)
+            throw new ArgumentException("O conteúdo não pode ter mais de 3000 caracteres.");
+    }
 }
