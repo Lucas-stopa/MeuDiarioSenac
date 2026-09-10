@@ -7,6 +7,7 @@ public class MenuPrincipal
 {
     private readonly UsuarioService _usuarioService = new UsuarioService();
     private readonly RegistroService _registroService = new RegistroService();
+    private Usuario? _usuarioLogado = null;
 
     public void Menu()
     {
@@ -14,9 +15,12 @@ public class MenuPrincipal
 
         do
         {
-            Console.WriteLine("===== DIÁRIO SENAC =====");
-            Console.WriteLine("1 - Gerenciar Usuários");
-            Console.WriteLine("2 - Gerenciar Registros");
+            Console.Clear();
+            Console.WriteLine("╔════════════════════════════════╗");
+            Console.WriteLine("║     DIÁRIO SENAC - ACESSO      ║");
+            Console.WriteLine("╚════════════════════════════════╝");
+            Console.WriteLine("1 - Login");
+            Console.WriteLine("2 - Cadastro");
             Console.WriteLine("0 - Sair");
             Console.Write("Digite a opção desejada: ");
 
@@ -27,11 +31,11 @@ public class MenuPrincipal
                 switch (escolha)
                 {
                     case 1:
-                        MenuUsuarios();
+                        RealizarLogin();
                         break;
 
                     case 2:
-                        MenuRegistros();
+                        RealizarCadastro();
                         break;
 
                     case 0:
@@ -40,288 +44,110 @@ public class MenuPrincipal
 
                     default:
                         Console.WriteLine("Opção inválida.");
+                        Console.ReadLine();
                         break;
                 }
             }
             else
             {
                 Console.WriteLine("Digite uma opção válida.");
+                Console.ReadLine();
                 escolha = -1;
             }
-
-            Console.WriteLine();
 
         } while (escolha != 0);
     }
 
-
-    public void MenuUsuarios()
+    public void RealizarLogin()
     {
-        int escolha;
+        Console.Clear();
+        Console.WriteLine("╔════════════════════════════════╗");
+        Console.WriteLine("║         TELA DE LOGIN          ║");
+        Console.WriteLine("╚════════════════════════════════╝");
 
-        do
-        {
-            Console.WriteLine("===== GERENCIAR USUÁRIOS =====");
-            Console.WriteLine("1 - Cadastrar novo usuário");
-            Console.WriteLine("2 - Listar todos os usuários");
-            Console.WriteLine("3 - Buscar usuário por ID");
-            Console.WriteLine("4 - Atualizar usuário");
-            Console.WriteLine("5 - Remover usuário");
-            Console.WriteLine("0 - Voltar ao menu anterior");
-            Console.Write("Digite a opção desejada: ");
-
-            if (int.TryParse(Console.ReadLine(), out escolha))
-            {
-                Console.WriteLine();
-
-                switch (escolha)
-                {
-                    case 1:
-                        CadastrarUsuario();
-                        break;
-
-                    case 2:
-                        ListarUsuarios();
-                        break;
-
-                    case 3:
-                        BuscarUsuarioPorId();
-                        break;
-
-                    case 4:
-                        AtualizarUsuario();
-                        break;
-
-                    case 5:
-                        RemoverUsuarioPorId();
-                        break;
-
-                    case 0:
-                        return;
-
-                    default:
-                        Console.WriteLine("Opção inválida.");
-                        break;
-                }
-            }
-            else
-            {
-                Console.WriteLine("Digite uma opção válida.");
-                escolha = -1;
-            }
-
-            Console.WriteLine();
-
-        } while (escolha != 0);
-    }
-
-    public void CadastrarUsuario()
-    {
-        Console.Write("Nome do usuário: ");
-        string nome = Console.ReadLine() ?? string.Empty;
+        Console.Write("Email: ");
+        string email = Console.ReadLine() ?? string.Empty;
 
         Console.Write("Senha: ");
         string senha = Console.ReadLine() ?? string.Empty;
 
         try
         {
-            _usuarioService.CadastrarUsuario(nome, senha);
+            Usuario? usuarioAutenticado = _usuarioService.Autenticar(email, senha);
+
+            if (usuarioAutenticado == null)
+            {
+                Console.ForegroundColor = ConsoleColor.Red;
+                Console.WriteLine("\n❌ Email ou senha incorretos.");
+                Console.ResetColor();
+                Console.ReadLine();
+                return;
+            }
+
+            _usuarioLogado = usuarioAutenticado;
             Console.ForegroundColor = ConsoleColor.Green;
-            Console.WriteLine("✓ Usuário cadastrado com sucesso!");
+            Console.WriteLine($"\n✓ Bem-vindo, {usuarioAutenticado.Nome}!");
             Console.ResetColor();
+            Console.ReadLine();
+
+            MenuPrincipalLogado(usuarioAutenticado);
         }
-        catch (ArgumentException ex)
+        catch (Exception ex)
         {
             Console.ForegroundColor = ConsoleColor.Red;
-            Console.WriteLine($"❌ {ex.Message}");
+            Console.WriteLine($"\n❌ Erro: {ex.Message}");
             Console.ResetColor();
+            Console.ReadLine();
         }
     }
 
-    public void ListarUsuarios()
+    public void RealizarCadastro()
     {
-        List<Usuario> usuarios = _usuarioService.ListarTodosUsuarios();
+        Console.Clear();
+        Console.WriteLine("╔════════════════════════════════╗");
+        Console.WriteLine("║      CADASTRO DE NOVO USUÁRIO  ║");
+        Console.WriteLine("╚════════════════════════════════╝");
 
-        if (usuarios.Count == 0)
-        {
-            Console.WriteLine("Nenhum usuário encontrado.");
-            return;
-        }
+        Console.Write("Nome completo: ");
+        string nome = Console.ReadLine() ?? string.Empty;
 
-        foreach (Usuario usuario in usuarios)
-        {
-            Console.WriteLine("------------------------------------");
-            Console.WriteLine($"ID: {usuario.Id}");
-            Console.WriteLine($"Nome: {usuario.Nome}");
-            Console.WriteLine($"Total de Registros: {usuario.Registros.Count}");
-        }
+        Console.Write("Email: ");
+        string email = Console.ReadLine() ?? string.Empty;
 
-        Console.WriteLine("------------------------------------");
-    }
-
-    public void BuscarUsuarioPorId()
-    {
-        Console.Write("Informe o ID do usuário: ");
-
-        if (!int.TryParse(Console.ReadLine(), out int id))
-        {
-            Console.WriteLine("ID inválido.");
-            return;
-        }
-
-        Usuario? usuario = _usuarioService.BuscarUsuarioPorId(id);
-
-        if (usuario == null)
-        {
-            Console.WriteLine("Usuário não encontrado.");
-            return;
-        }
-
-        Console.WriteLine("------------------------------------");
-        Console.WriteLine($"ID: {usuario.Id}");
-        Console.WriteLine($"Nome: {usuario.Nome}");
-        Console.WriteLine($"Total de Registros: {usuario.Registros.Count}");
-        Console.WriteLine("------------------------------------");
-    }
-
-    public void AtualizarUsuario()
-    {
-        Console.Write("Informe o ID do usuário: ");
-
-        if (!int.TryParse(Console.ReadLine(), out int id))
-        {
-            Console.WriteLine("ID inválido.");
-            return;
-        }
-
-        Usuario? usuario = _usuarioService.BuscarUsuarioPorId(id);
-
-        if (usuario == null)
-        {
-            Console.WriteLine("Usuário não encontrado.");
-            return;
-        }
-
-        Console.WriteLine("\nO que deseja atualizar?");
-        Console.WriteLine("1 - Nome");
-        Console.WriteLine("2 - Senha");
-        Console.WriteLine("3 - Nome e Senha");
-        Console.Write("Digite a opção: ");
-
-        if (!int.TryParse(Console.ReadLine(), out int opcao))
-        {
-            Console.WriteLine("Opção inválida.");
-            return;
-        }
-
-        string? novoNome = null;
-        string? novaSenha = null;
-
-        if (opcao == 1 || opcao == 3)
-        {
-            Console.Write("Novo nome do usuário: ");
-            novoNome = Console.ReadLine();
-        }
-
-        if (opcao == 2 || opcao == 3)
-        {
-            Console.Write("Nova senha: ");
-            novaSenha = Console.ReadLine();
-        }
+        Console.Write("Senha (mín. 4 caracteres): ");
+        string senha = Console.ReadLine() ?? string.Empty;
 
         try
         {
-            _usuarioService.AtualizarUsuario(id, novoNome, novaSenha);
+            _usuarioService.CadastrarUsuario(nome, email, senha);
             Console.ForegroundColor = ConsoleColor.Green;
-            Console.WriteLine("✓ Usuário atualizado com sucesso!");
+            Console.WriteLine("\n✓ Usuário cadastrado com sucesso!");
+            Console.WriteLine("Você já pode fazer login com seus dados.");
             Console.ResetColor();
         }
         catch (ArgumentException ex)
         {
             Console.ForegroundColor = ConsoleColor.Red;
-            Console.WriteLine($"❌ {ex.Message}");
+            Console.WriteLine($"\n❌ {ex.Message}");
             Console.ResetColor();
         }
+
+        Console.ReadLine();
     }
 
-    public void RemoverUsuarioPorId()
+    public void MenuPrincipalLogado(Usuario usuarioLogado)
     {
-        Console.Write("Informe o ID do usuário: ");
-
-        if (!int.TryParse(Console.ReadLine(), out int id))
-        {
-            Console.WriteLine("ID inválido.");
-            return;
-        }
-
-        try
-        {
-            _usuarioService.RemoverUsuario(id);
-            Console.ForegroundColor = ConsoleColor.Green;
-            Console.WriteLine("✓ Usuário removido com sucesso!");
-            Console.ResetColor();
-        }
-        catch (ArgumentException ex)
-        {
-            Console.ForegroundColor = ConsoleColor.Red;
-            Console.WriteLine($"❌ {ex.Message}");
-            Console.ResetColor();
-        }
-    }
-
-
-    public void MenuRegistros()
-    {
-        // Selecionar usuário primeiro
-        Console.WriteLine("===== SELECIONAR USUÁRIO =====");
-        List<Usuario> usuarios = _usuarioService.ListarTodosUsuarios();
-
-        if (usuarios.Count == 0)
-        {
-            Console.WriteLine("Nenhum usuário disponível. Cadastre um usuário primeiro.");
-            return;
-        }
-
-        Console.WriteLine("Usuários disponíveis:");
-        foreach (Usuario u in usuarios)
-        {
-            Console.WriteLine($"ID: {u.Id} - Nome: {u.Nome}");
-        }
-
-        Console.Write("\nDigite o ID do usuário para gerenciar registros: ");
-        if (!int.TryParse(Console.ReadLine(), out int usuarioSelecionadoId))
-        {
-            Console.WriteLine("ID inválido.");
-            return;
-        }
-
-        Usuario? usuarioSelecionado = _usuarioService.BuscarUsuarioPorId(usuarioSelecionadoId);
-
-        if (usuarioSelecionado == null)
-        {
-            Console.WriteLine("Usuário não encontrado.");
-            return;
-        }
-
-        // Validar senha
-        if (!ValidarSenhaUsuario(usuarioSelecionado))
-        {
-            Console.WriteLine("Acesso negado. Senha incorreta.");
-            return;
-        }
-
-        Console.WriteLine($"\nVocê está gerenciando registros do usuário: {usuarioSelecionado.Nome}\n");
-
         int escolha;
 
         do
         {
-            Console.WriteLine("===== GERENCIAR REGISTROS =====");
-            Console.WriteLine("1 - Cadastrar novo registro");
-            Console.WriteLine("2 - Listar registros deste usuário");
-            Console.WriteLine("3 - Buscar registro por ID");
-            Console.WriteLine("4 - Remover registro");
-            Console.WriteLine("0 - Voltar ao menu anterior");
+            Console.Clear();
+            Console.WriteLine("╔════════════════════════════════╗");
+            Console.WriteLine($"║ Bem-vindo, {usuarioLogado.Nome,-18}║");
+            Console.WriteLine("╚════════════════════════════════╝");
+            Console.WriteLine("1 - Gerenciar Registros");
+            Console.WriteLine("2 - Meu Perfil");
+            Console.WriteLine("0 - Logout");
             Console.Write("Digite a opção desejada: ");
 
             if (int.TryParse(Console.ReadLine(), out escolha))
@@ -331,19 +157,74 @@ public class MenuPrincipal
                 switch (escolha)
                 {
                     case 1:
-                        CadastrarRegistro(usuarioSelecionado);
+                        MenuRegistros(usuarioLogado);
                         break;
 
                     case 2:
-                        ListarRegistros(usuarioSelecionado);
+                        MenuMeuPerfil(usuarioLogado);
+                        break;
+
+                    case 0:
+                        _usuarioLogado = null;
+                        Console.ForegroundColor = ConsoleColor.Yellow;
+                        Console.WriteLine("Você foi desconectado.");
+                        Console.ResetColor();
+                        Console.ReadLine();
+                        return;
+
+                    default:
+                        Console.WriteLine("Opção inválida.");
+                        Console.ReadLine();
+                        break;
+                }
+            }
+            else
+            {
+                Console.WriteLine("Digite uma opção válida.");
+                Console.ReadLine();
+                escolha = -1;
+            }
+
+        } while (escolha != 0);
+    }
+
+    public void MenuMeuPerfil(Usuario usuarioLogado)
+    {
+        int escolha;
+
+        do
+        {
+            Console.Clear();
+            Console.WriteLine("╔════════════════════════════════╗");
+            Console.WriteLine("║        MEU PERFIL              ║");
+            Console.WriteLine("╚════════════════════════════════╝");
+            Console.WriteLine($"Nome: {usuarioLogado.Nome}");
+            Console.WriteLine($"Email: {usuarioLogado.Email}");
+            Console.WriteLine($"Total de Registros: {usuarioLogado.Registros.Count}");
+            Console.WriteLine("\nO que deseja fazer?");
+            Console.WriteLine("1 - Alterar Nome");
+            Console.WriteLine("2 - Alterar Senha");
+            Console.WriteLine("3 - Alterar Nome e Senha");
+            Console.WriteLine("0 - Voltar");
+            Console.Write("Digite a opção desejada: ");
+
+            if (int.TryParse(Console.ReadLine(), out escolha))
+            {
+                Console.WriteLine();
+
+                switch (escolha)
+                {
+                    case 1:
+                        AlterarNomeUsuario(usuarioLogado);
+                        break;
+
+                    case 2:
+                        AlterarSenhaUsuario(usuarioLogado);
                         break;
 
                     case 3:
-                        BuscarRegistroPorId(usuarioSelecionado);
-                        break;
-
-                    case 4:
-                        RemoverRegistroPorId(usuarioSelecionado);
+                        AlterarNomeUsuario(usuarioLogado);
+                        AlterarSenhaUsuario(usuarioLogado);
                         break;
 
                     case 0:
@@ -351,16 +232,121 @@ public class MenuPrincipal
 
                     default:
                         Console.WriteLine("Opção inválida.");
+                        Console.ReadLine();
                         break;
                 }
             }
             else
             {
                 Console.WriteLine("Digite uma opção válida.");
+                Console.ReadLine();
                 escolha = -1;
             }
 
-            Console.WriteLine();
+        } while (escolha != 0);
+    }
+
+    private void AlterarNomeUsuario(Usuario usuarioLogado)
+    {
+        Console.Write("Novo nome: ");
+        string novoNome = Console.ReadLine() ?? string.Empty;
+
+        try
+        {
+            _usuarioService.AtualizarUsuario(usuarioLogado.Id, novoNome, null);
+            usuarioLogado.Nome = novoNome;
+            Console.ForegroundColor = ConsoleColor.Green;
+            Console.WriteLine("✓ Nome atualizado com sucesso!");
+            Console.ResetColor();
+        }
+        catch (ArgumentException ex)
+        {
+            Console.ForegroundColor = ConsoleColor.Red;
+            Console.WriteLine($"❌ {ex.Message}");
+            Console.ResetColor();
+        }
+
+        Console.ReadLine();
+    }
+
+    private void AlterarSenhaUsuario(Usuario usuarioLogado)
+    {
+        Console.Write("Nova senha: ");
+        string novaSenha = Console.ReadLine() ?? string.Empty;
+
+        try
+        {
+            _usuarioService.AtualizarUsuario(usuarioLogado.Id, null, novaSenha);
+            usuarioLogado.Senha = novaSenha;
+            Console.ForegroundColor = ConsoleColor.Green;
+            Console.WriteLine("✓ Senha atualizada com sucesso!");
+            Console.ResetColor();
+        }
+        catch (ArgumentException ex)
+        {
+            Console.ForegroundColor = ConsoleColor.Red;
+            Console.WriteLine($"❌ {ex.Message}");
+            Console.ResetColor();
+        }
+
+        Console.ReadLine();
+    }
+
+
+    public void MenuRegistros(Usuario usuarioLogado)
+    {
+        int escolha;
+
+        do
+        {
+            Console.Clear();
+            Console.WriteLine("╔════════════════════════════════╗");
+            Console.WriteLine("║    GERENCIAR REGISTROS         ║");
+            Console.WriteLine("╚════════════════════════════════╝");
+            Console.WriteLine("1 - Cadastrar novo registro");
+            Console.WriteLine("2 - Listar meus registros");
+            Console.WriteLine("3 - Buscar registro por ID");
+            Console.WriteLine("4 - Remover registro");
+            Console.WriteLine("0 - Voltar");
+            Console.Write("Digite a opção desejada: ");
+
+            if (int.TryParse(Console.ReadLine(), out escolha))
+            {
+                Console.WriteLine();
+
+                switch (escolha)
+                {
+                    case 1:
+                        CadastrarRegistro(usuarioLogado);
+                        break;
+
+                    case 2:
+                        ListarRegistros(usuarioLogado);
+                        break;
+
+                    case 3:
+                        BuscarRegistroPorId(usuarioLogado);
+                        break;
+
+                    case 4:
+                        RemoverRegistroPorId(usuarioLogado);
+                        break;
+
+                    case 0:
+                        return;
+
+                    default:
+                        Console.WriteLine("Opção inválida.");
+                        Console.ReadLine();
+                        break;
+                }
+            }
+            else
+            {
+                Console.WriteLine("Digite uma opção válida.");
+                Console.ReadLine();
+                escolha = -1;
+            }
 
         } while (escolha != 0);
     }
@@ -424,29 +410,56 @@ public class MenuPrincipal
             Console.WriteLine($"❌ {ex.Message}");
             Console.ResetColor();
         }
+        catch (Exception ex)
+        {
+            Console.ForegroundColor = ConsoleColor.Red;
+            Console.WriteLine($"❌ Erro ao cadastrar registro: {ex.Message}");
+            Console.ResetColor();
+        }
+
+        Console.WriteLine("\nPressione Enter para voltar...");
+        Console.ReadLine();
     }
 
     public void ListarRegistros(Usuario usuario)
     {
-        List<Registro> registrosUsuario = _registroService.ListarRegistrosDoUsuario(usuario.Id);
-
-        if (registrosUsuario.Count == 0)
+        try
         {
-            Console.WriteLine($"Nenhum registro encontrado para {usuario.Nome}.");
-            return;
+            List<Registro> registrosUsuario = _registroService.ListarRegistrosDoUsuario(usuario.Id);
+
+            if (registrosUsuario.Count == 0)
+            {
+                Console.ForegroundColor = ConsoleColor.Yellow;
+                Console.WriteLine($"Nenhum registro encontrado para {usuario.Nome}.");
+                Console.ResetColor();
+            }
+            else
+            {
+                Console.ForegroundColor = ConsoleColor.Cyan;
+                Console.WriteLine($"Registros de {usuario.Nome}:");
+                Console.ResetColor();
+
+                foreach (Registro registro in registrosUsuario)
+                {
+                    Console.WriteLine("------------------------------------");
+                    Console.WriteLine($"ID: {registro.Id}");
+                    Console.WriteLine($"Título: {registro.Titulo}");
+                    Console.WriteLine($"Data: {registro.Data:yyyy-MM-dd HH:mm:ss}");
+                    Console.WriteLine($"Conteúdo: {registro.Conteudo}");
+                }
+
+                Console.WriteLine("------------------------------------");
+            }
+        }
+        catch (Exception ex)
+        {
+            Console.ForegroundColor = ConsoleColor.Red;
+            Console.WriteLine($"❌ Erro ao listar registros: {ex.Message}");
+            Console.ResetColor();
         }
 
-        Console.WriteLine($"Registros de {usuario.Nome}:");
-        foreach (Registro registro in registrosUsuario)
-        {
-            Console.WriteLine("------------------------------------");
-            Console.WriteLine($"ID: {registro.Id}");
-            Console.WriteLine($"Título: {registro.Titulo}");
-            Console.WriteLine($"Data: {registro.Data:yyyy-MM-dd}");
-            Console.WriteLine($"Conteúdo: {registro.Conteudo}");
-        }
-
-        Console.WriteLine("------------------------------------");
+        Console.WriteLine("\nPressione Enter para voltar...");
+        Console.ReadLine();
     }
 
     public void BuscarRegistroPorId(Usuario usuario)
@@ -455,24 +468,43 @@ public class MenuPrincipal
 
         if (!int.TryParse(Console.ReadLine(), out int id))
         {
+            Console.ForegroundColor = ConsoleColor.Red;
             Console.WriteLine("ID inválido.");
+            Console.ResetColor();
+            Console.WriteLine("\nPressione Enter para voltar...");
+            Console.ReadLine();
             return;
         }
 
-        Registro? registro = _registroService.BuscarRegistroPorId(id, usuario.Id);
-
-        if (registro == null)
+        try
         {
-            Console.WriteLine("Registro não encontrado ou não pertence a este usuário.");
-            return;
+            Registro? registro = _registroService.BuscarRegistroPorId(id, usuario.Id);
+
+            if (registro == null)
+            {
+                Console.ForegroundColor = ConsoleColor.Yellow;
+                Console.WriteLine("Registro não encontrado ou não pertence a este usuário.");
+                Console.ResetColor();
+            }
+            else
+            {
+                Console.WriteLine("------------------------------------");
+                Console.WriteLine($"ID: {registro.Id}");
+                Console.WriteLine($"Título: {registro.Titulo}");
+                Console.WriteLine($"Data: {registro.Data:yyyy-MM-dd HH:mm:ss}");
+                Console.WriteLine($"Conteúdo: {registro.Conteudo}");
+                Console.WriteLine("------------------------------------");
+            }
+        }
+        catch (Exception ex)
+        {
+            Console.ForegroundColor = ConsoleColor.Red;
+            Console.WriteLine($"❌ Erro ao buscar registro: {ex.Message}");
+            Console.ResetColor();
         }
 
-        Console.WriteLine("------------------------------------");
-        Console.WriteLine($"ID: {registro.Id}");
-        Console.WriteLine($"Título: {registro.Titulo}");
-        Console.WriteLine($"Data: {registro.Data:dd-MM-yyyy}");
-        Console.WriteLine($"Conteúdo: {registro.Conteudo}");
-        Console.WriteLine("------------------------------------");
+        Console.WriteLine("\nPressione Enter para voltar...");
+        Console.ReadLine();
     }
 
     public void RemoverRegistroPorId(Usuario usuario)
@@ -481,29 +513,37 @@ public class MenuPrincipal
 
         if (!int.TryParse(Console.ReadLine(), out int id))
         {
+            Console.ForegroundColor = ConsoleColor.Red;
             Console.WriteLine("ID inválido.");
+            Console.ResetColor();
+            Console.WriteLine("\nPressione Enter para voltar...");
+            Console.ReadLine();
             return;
         }
 
-        if (_registroService.RemoverRegistro(id, usuario.Id))
+        try
         {
-            Console.ForegroundColor = ConsoleColor.Green;
-            Console.WriteLine("✓ Registro removido com sucesso!");
-            Console.ResetColor();
+            if (_registroService.RemoverRegistro(id, usuario.Id))
+            {
+                Console.ForegroundColor = ConsoleColor.Green;
+                Console.WriteLine("✓ Registro removido com sucesso!");
+                Console.ResetColor();
+            }
+            else
+            {
+                Console.ForegroundColor = ConsoleColor.Yellow;
+                Console.WriteLine("Registro não encontrado ou não pertence a este usuário.");
+                Console.ResetColor();
+            }
         }
-        else
+        catch (Exception ex)
         {
             Console.ForegroundColor = ConsoleColor.Red;
-            Console.WriteLine("❌ Registro não encontrado ou não pertence a este usuário.");
+            Console.WriteLine($"❌ Erro ao remover registro: {ex.Message}");
             Console.ResetColor();
         }
-    }
 
-    private bool ValidarSenhaUsuario(Usuario usuario)
-    {
-        Console.Write("Digite a senha para acessar os registros: ");
-        string senhaDigitada = Console.ReadLine() ?? string.Empty;
-
-        return _usuarioService.ValidarSenhaUsuario(usuario, senhaDigitada);
+        Console.WriteLine("\nPressione Enter para voltar...");
+        Console.ReadLine();
     }
 }

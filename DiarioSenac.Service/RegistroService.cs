@@ -22,8 +22,7 @@ public class RegistroService
             Titulo = titulo,
             Data = DateTime.Now,
             Conteudo = conteudo,
-            UsuarioId = usuario.Id,
-            Usuario = null!
+            UsuarioId = usuario.Id
         };
 
         _registroBusiness.Validar(registro);
@@ -51,8 +50,7 @@ public class RegistroService
     /// </summary>
     public List<Registro> ListarRegistrosDoUsuario(int usuarioId)
     {
-        List<Registro> todosRegistros = _registroDAO.ListarRegistros();
-        return todosRegistros.Where(r => r.UsuarioId == usuarioId).ToList();
+        return _registroDAO.ListarRegistrosPorUsuario(usuarioId);
     }
 
     /// <summary>

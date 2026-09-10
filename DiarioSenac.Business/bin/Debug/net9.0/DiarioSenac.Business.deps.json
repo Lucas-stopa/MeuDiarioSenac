@@ -1,0 +1,39 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v9.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v9.0": {
+      "DiarioSenac.Business/1.0.0": {
+        "dependencies": {
+          "DiarioSenac.Model": "1.0.0"
+        },
+        "runtime": {
+          "DiarioSenac.Business.dll": {}
+        }
+      },
+      "DiarioSenac.Model/1.0.0": {
+        "runtime": {
+          "DiarioSenac.Model.dll": {
+            "assemblyVersion": "1.0.0.0",
+            "fileVersion": "1.0.0.0"
+          }
+        }
+      }
+    }
+  },
+  "libraries": {
+    "DiarioSenac.Business/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "DiarioSenac.Model/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}

@@ -27,6 +27,12 @@ public class UsuarioDAO
         return context.Usuarios.FirstOrDefault(u => u.Id == id);
     }
 
+    public Usuario? BuscarUsuarioPorEmail(string email)
+    {
+        using var context = new DiarioSenacContext();
+        return context.Usuarios.FirstOrDefault(u => u.Email == email);
+    }
+
     public void AtualizarUsuario(Usuario usuario)
     {
         using var context = new DiarioSenacContext();

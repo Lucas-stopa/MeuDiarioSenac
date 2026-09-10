@@ -12,8 +12,8 @@ public class RegistroBusiness
 
     public void TituloTamanho(Registro registro)
     {
-        if (registro.Titulo.Length > 50)
-            throw new ArgumentException("O título não pode ter mais de 50 caracteres.");
+        if (registro.Titulo.Length > 255)
+            throw new ArgumentException("O título não pode ter mais de 255 caracteres.");
     }
 
     public void DataAgora(Registro registro)
@@ -49,8 +49,8 @@ public class RegistroBusiness
         if (string.IsNullOrWhiteSpace(titulo))
             throw new ArgumentException("O título é obrigatório.");
         
-        if (titulo.Length > 50)
-            throw new ArgumentException("O título não pode ter mais de 50 caracteres.");
+        if (titulo.Length > 255)
+            throw new ArgumentException("O título não pode ter mais de 255 caracteres.");
     }
 
     public void ValidarConteudo(string conteudo)

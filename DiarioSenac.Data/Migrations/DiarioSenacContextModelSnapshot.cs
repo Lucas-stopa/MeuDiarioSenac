@@ -22,7 +22,7 @@ namespace DiarioSenac.Data.Migrations
 
             MySqlModelBuilderExtensions.AutoIncrementColumns(modelBuilder);
 
-            modelBuilder.Entity("DiarioSenac.Data.Registro", b =>
+            modelBuilder.Entity("DiarioSenac.Model.Registro", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -51,7 +51,7 @@ namespace DiarioSenac.Data.Migrations
                     b.ToTable("Registros");
                 });
 
-            modelBuilder.Entity("DiarioSenac.Data.Usuario", b =>
+            modelBuilder.Entity("DiarioSenac.Model.Usuario", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -59,22 +59,29 @@ namespace DiarioSenac.Data.Migrations
 
                     MySqlPropertyBuilderExtensions.UseMySqlIdentityColumn(b.Property<int>("Id"));
 
+                    b.Property<string>("Email")
+                        .IsRequired()
+                        .HasMaxLength(100)
+                        .HasColumnType("varchar(100)");
+
                     b.Property<string>("Nome")
                         .IsRequired()
-                        .HasColumnType("longtext");
+                        .HasMaxLength(100)
+                        .HasColumnType("varchar(100)");
 
                     b.Property<string>("Senha")
                         .IsRequired()
-                        .HasColumnType("longtext");
+                        .HasMaxLength(100)
+                        .HasColumnType("varchar(100)");
 
                     b.HasKey("Id");
 
                     b.ToTable("Usuarios");
                 });
 
-            modelBuilder.Entity("DiarioSenac.Data.Registro", b =>
+            modelBuilder.Entity("DiarioSenac.Model.Registro", b =>
                 {
-                    b.HasOne("DiarioSenac.Data.Usuario", "Usuario")
+                    b.HasOne("DiarioSenac.Model.Usuario", "Usuario")
                         .WithMany("Registros")
                         .HasForeignKey("UsuarioId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -83,7 +90,7 @@ namespace DiarioSenac.Data.Migrations
                     b.Navigation("Usuario");
                 });
 
-            modelBuilder.Entity("DiarioSenac.Data.Usuario", b =>
+            modelBuilder.Entity("DiarioSenac.Model.Usuario", b =>
                 {
                     b.Navigation("Registros");
                 });

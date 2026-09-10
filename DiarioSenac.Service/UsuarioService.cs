@@ -10,13 +10,19 @@ public class UsuarioService
     /// <summary>
     /// Cadastra um novo usuário com validações básicas
     /// </summary>
-    public void CadastrarUsuario(string nome, string senha)
+    public void CadastrarUsuario(string nome, string email, string senha)
     {
-        ValidarDadosUsuario(nome, senha);
+        ValidarDadosUsuario(nome, email, senha);
+
+        // Verifica se email já existe
+        Usuario? usuarioExistente = _usuarioDAO.BuscarUsuarioPorEmail(email);
+        if (usuarioExistente != null)
+            throw new ArgumentException("Este email já está cadastrado.");
 
         Usuario usuario = new Usuario
         {
             Nome = nome,
+            Email = email,
             Senha = senha
         };
 
@@ -37,6 +43,30 @@ public class UsuarioService
     public Usuario? BuscarUsuarioPorId(int id)
     {
         return _usuarioDAO.BuscarUsuarioPorId(id);
+    }
+
+    /// <summary>
+    /// Busca um usuário por Email
+    /// </summary>
+    public Usuario? BuscarUsuarioPorEmail(string email)
+    {
+        return _usuarioDAO.BuscarUsuarioPorEmail(email);
+    }
+
+    /// <summary>
+    /// Autentica um usuário por email e senha
+    /// </summary>
+    public Usuario? Autenticar(string email, string senha)
+    {
+        Usuario? usuario = _usuarioDAO.BuscarUsuarioPorEmail(email);
+
+        if (usuario == null)
+            return null;
+
+        if (ValidarSenhaUsuario(usuario, senha))
+            return usuario;
+
+        return null;
     }
 
     /// <summary>
@@ -88,9 +118,10 @@ public class UsuarioService
     /// <summary>
     /// Validações internas
     /// </summary>
-    private void ValidarDadosUsuario(string nome, string senha)
+    private void ValidarDadosUsuario(string nome, string email, string senha)
     {
         ValidarNome(nome);
+        ValidarEmail(email);
         ValidarSenha(senha);
     }
 
@@ -98,6 +129,16 @@ public class UsuarioService
     {
         if (string.IsNullOrWhiteSpace(nome))
             throw new ArgumentException("Nome não pode estar vazio.");
+    }
+
+    private void ValidarEmail(string email)
+    {
+        if (string.IsNullOrWhiteSpace(email))
+            throw new ArgumentException("Email não pode estar vazio.");
+
+        // Validação básica de email
+        if (!email.Contains("@") || !email.Contains("."))
+            throw new ArgumentException("Email inválido.");
     }
 
     private void ValidarSenha(string senha)

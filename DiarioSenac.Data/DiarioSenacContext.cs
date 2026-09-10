@@ -17,11 +17,28 @@ public class DiarioSenacContext : DbContext
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
+        // Configurar Registro
+        modelBuilder.Entity<Registro>()
+            .HasKey(r => r.Id);
+        
+        modelBuilder.Entity<Registro>()
+            .Property(r => r.Id)
+            .ValueGeneratedOnAdd();
+
+        // Configurar Usuario
+        modelBuilder.Entity<Usuario>()
+            .HasKey(u => u.Id);
+        
+        modelBuilder.Entity<Usuario>()
+            .Property(u => u.Id)
+            .ValueGeneratedOnAdd();
+
+        // Configurar relacionamento
         modelBuilder.Entity<Usuario>()
             .HasMany(u => u.Registros)
             .WithOne(r => r.Usuario)
-            .HasForeignKey(r => r.UsuarioId);
-        
+            .HasForeignKey(r => r.UsuarioId)
+            .OnDelete(DeleteBehavior.Cascade);
     }
 }
  

@@ -1,37 +1,57 @@
-using MySql.Data.MySqlClient;
-using DiarioSenac.Data;
+using Microsoft.EntityFrameworkCore;
 using DiarioSenac.Model;
 
 namespace DiarioSenac.Data;
 
 public class RegistroDAO
 {
-    public DiarioSenacContext bdconexao = new DiarioSenacContext();
-    
     public void InserirRegistro(Registro registro)
     {
-        bdconexao.Registros.Add(registro);
-        bdconexao.SaveChanges();
+        using var context = new DiarioSenacContext();
+        context.Registros.Add(registro);
+        context.SaveChanges();
     }
 
     public List<Registro> ListarRegistros()
     {
-        return bdconexao.Registros.ToList();
+        using var context = new DiarioSenacContext();
+        return context.Registros
+            .Include(r => r.Usuario)
+            .OrderBy(r => r.Id)
+            .ToList();
+    }
+
+    /// <summary>
+    /// Lista registros de um usuário específico
+    /// </summary>
+    public List<Registro> ListarRegistrosPorUsuario(int usuarioId)
+    {
+        using var context = new DiarioSenacContext();
+        return context.Registros
+            .Include(r => r.Usuario)
+            .Where(r => r.UsuarioId == usuarioId)
+            .OrderBy(r => r.Id)
+            .ToList();
     }
 
     public Registro? BuscarRegistroPorId(int id)
     {
-        return bdconexao.Registros.FirstOrDefault(r => r.Id == id);
+        using var context = new DiarioSenacContext();
+        return context.Registros
+            .Include(r => r.Usuario)
+            .FirstOrDefault(r => r.Id == id);
     }
 
     public void RemoverRegistro(int id)
     {
-        var registro = BuscarRegistroPorId(id);
-        if (registro != null)
-        {
-            bdconexao.Registros.Remove(registro);
-            bdconexao.SaveChanges();
-        }
+        using var context = new DiarioSenacContext();
+        var registro = context.Registros.FirstOrDefault(r => r.Id == id);
+
+        if (registro is null)
+            return;
+
+        context.Registros.Remove(registro);
+        context.SaveChanges();
     }
 }
     
