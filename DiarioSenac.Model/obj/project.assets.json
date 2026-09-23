@@ -13,11 +13,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\workplace\\DesenvolvedorWeb\\DiarioSenac\\DiarioSenac.Model\\DiarioSenac.Model.csproj",
+      "projectUniqueName": "C:\\workplace\\DesenvolvedorWeb\\Back-end\\DiarioSenac\\DiarioSenac.Model\\DiarioSenac.Model.csproj",
       "projectName": "DiarioSenac.Model",
-      "projectPath": "C:\\workplace\\DesenvolvedorWeb\\DiarioSenac\\DiarioSenac.Model\\DiarioSenac.Model.csproj",
+      "projectPath": "C:\\workplace\\DesenvolvedorWeb\\Back-end\\DiarioSenac\\DiarioSenac.Model\\DiarioSenac.Model.csproj",
       "packagesPath": "C:\\Users\\Prog_Sis\\.nuget\\packages\\",
-      "outputPath": "C:\\workplace\\DesenvolvedorWeb\\DiarioSenac\\DiarioSenac.Model\\obj\\",
+      "outputPath": "C:\\workplace\\DesenvolvedorWeb\\Back-end\\DiarioSenac\\DiarioSenac.Model\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\Prog_Sis\\AppData\\Roaming\\NuGet\\NuGet.Config"

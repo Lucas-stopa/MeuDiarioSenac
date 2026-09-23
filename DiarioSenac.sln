@@ -15,6 +15,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DiarioSenac.Business", "Dia
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DiarioSenac.Service", "DiarioSenac.Service\DiarioSenac.Service.csproj", "{55B94278-8F81-4B33-B611-B8735E64B174}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DiarioSenac.WebApi", "DiarioSenac.WebApi\DiarioSenac.WebApi.csproj", "{FE37C528-5C94-41D5-B469-828CDB957111}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -97,6 +99,18 @@ Global
 		{55B94278-8F81-4B33-B611-B8735E64B174}.Release|x64.Build.0 = Release|Any CPU
 		{55B94278-8F81-4B33-B611-B8735E64B174}.Release|x86.ActiveCfg = Release|Any CPU
 		{55B94278-8F81-4B33-B611-B8735E64B174}.Release|x86.Build.0 = Release|Any CPU
+		{FE37C528-5C94-41D5-B469-828CDB957111}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FE37C528-5C94-41D5-B469-828CDB957111}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FE37C528-5C94-41D5-B469-828CDB957111}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{FE37C528-5C94-41D5-B469-828CDB957111}.Debug|x64.Build.0 = Debug|Any CPU
+		{FE37C528-5C94-41D5-B469-828CDB957111}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{FE37C528-5C94-41D5-B469-828CDB957111}.Debug|x86.Build.0 = Debug|Any CPU
+		{FE37C528-5C94-41D5-B469-828CDB957111}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FE37C528-5C94-41D5-B469-828CDB957111}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FE37C528-5C94-41D5-B469-828CDB957111}.Release|x64.ActiveCfg = Release|Any CPU
+		{FE37C528-5C94-41D5-B469-828CDB957111}.Release|x64.Build.0 = Release|Any CPU
+		{FE37C528-5C94-41D5-B469-828CDB957111}.Release|x86.ActiveCfg = Release|Any CPU
+		{FE37C528-5C94-41D5-B469-828CDB957111}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

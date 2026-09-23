@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\workplace\\DesenvolvedorWeb\\DiarioSenac\\DiarioSenac.ConsoleApp\\DiarioSenac.ConsoleApp.csproj": {}
+    "C:\\workplace\\DesenvolvedorWeb\\Back-end\\DiarioSenac\\DiarioSenac.ConsoleApp\\DiarioSenac.ConsoleApp.csproj": {}
   },
   "projects": {
-    "C:\\workplace\\DesenvolvedorWeb\\DiarioSenac\\DiarioSenac.Business\\DiarioSenac.Business.csproj": {
+    "C:\\workplace\\DesenvolvedorWeb\\Back-end\\DiarioSenac\\DiarioSenac.Business\\DiarioSenac.Business.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\workplace\\DesenvolvedorWeb\\DiarioSenac\\DiarioSenac.Business\\DiarioSenac.Business.csproj",
+        "projectUniqueName": "C:\\workplace\\DesenvolvedorWeb\\Back-end\\DiarioSenac\\DiarioSenac.Business\\DiarioSenac.Business.csproj",
         "projectName": "DiarioSenac.Business",
-        "projectPath": "C:\\workplace\\DesenvolvedorWeb\\DiarioSenac\\DiarioSenac.Business\\DiarioSenac.Business.csproj",
+        "projectPath": "C:\\workplace\\DesenvolvedorWeb\\Back-end\\DiarioSenac\\DiarioSenac.Business\\DiarioSenac.Business.csproj",
         "packagesPath": "C:\\Users\\Prog_Sis\\.nuget\\packages\\",
-        "outputPath": "C:\\workplace\\DesenvolvedorWeb\\DiarioSenac\\DiarioSenac.Business\\obj\\",
+        "outputPath": "C:\\workplace\\DesenvolvedorWeb\\Back-end\\DiarioSenac\\DiarioSenac.Business\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Prog_Sis\\AppData\\Roaming\\NuGet\\NuGet.Config"
@@ -26,8 +26,8 @@
           "net9.0": {
             "targetAlias": "net9.0",
             "projectReferences": {
-              "C:\\workplace\\DesenvolvedorWeb\\DiarioSenac\\DiarioSenac.Model\\DiarioSenac.Model.csproj": {
-                "projectPath": "C:\\workplace\\DesenvolvedorWeb\\DiarioSenac\\DiarioSenac.Model\\DiarioSenac.Model.csproj"
+              "C:\\workplace\\DesenvolvedorWeb\\Back-end\\DiarioSenac\\DiarioSenac.Model\\DiarioSenac.Model.csproj": {
+                "projectPath": "C:\\workplace\\DesenvolvedorWeb\\Back-end\\DiarioSenac\\DiarioSenac.Model\\DiarioSenac.Model.csproj"
               }
             }
           }
@@ -67,14 +67,14 @@
         }
       }
     },
-    "C:\\workplace\\DesenvolvedorWeb\\DiarioSenac\\DiarioSenac.Classes\\DiarioSenac.Classes.csproj": {
+    "C:\\workplace\\DesenvolvedorWeb\\Back-end\\DiarioSenac\\DiarioSenac.Classes\\DiarioSenac.Classes.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\workplace\\DesenvolvedorWeb\\DiarioSenac\\DiarioSenac.Classes\\DiarioSenac.Classes.csproj",
+        "projectUniqueName": "C:\\workplace\\DesenvolvedorWeb\\Back-end\\DiarioSenac\\DiarioSenac.Classes\\DiarioSenac.Classes.csproj",
         "projectName": "DiarioSenac.Classes",
-        "projectPath": "C:\\workplace\\DesenvolvedorWeb\\DiarioSenac\\DiarioSenac.Classes\\DiarioSenac.Classes.csproj",
+        "projectPath": "C:\\workplace\\DesenvolvedorWeb\\Back-end\\DiarioSenac\\DiarioSenac.Classes\\DiarioSenac.Classes.csproj",
         "packagesPath": "C:\\Users\\Prog_Sis\\.nuget\\packages\\",
-        "outputPath": "C:\\workplace\\DesenvolvedorWeb\\DiarioSenac\\DiarioSenac.Classes\\obj\\",
+        "outputPath": "C:\\workplace\\DesenvolvedorWeb\\Back-end\\DiarioSenac\\DiarioSenac.Classes\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Prog_Sis\\AppData\\Roaming\\NuGet\\NuGet.Config"
@@ -89,17 +89,17 @@
           "net9.0": {
             "targetAlias": "net9.0",
             "projectReferences": {
-              "C:\\workplace\\DesenvolvedorWeb\\DiarioSenac\\DiarioSenac.Business\\DiarioSenac.Business.csproj": {
-                "projectPath": "C:\\workplace\\DesenvolvedorWeb\\DiarioSenac\\DiarioSenac.Business\\DiarioSenac.Business.csproj"
+              "C:\\workplace\\DesenvolvedorWeb\\Back-end\\DiarioSenac\\DiarioSenac.Business\\DiarioSenac.Business.csproj": {
+                "projectPath": "C:\\workplace\\DesenvolvedorWeb\\Back-end\\DiarioSenac\\DiarioSenac.Business\\DiarioSenac.Business.csproj"
               },
-              "C:\\workplace\\DesenvolvedorWeb\\DiarioSenac\\DiarioSenac.Data\\DiarioSenac.Data.csproj": {
-                "projectPath": "C:\\workplace\\DesenvolvedorWeb\\DiarioSenac\\DiarioSenac.Data\\DiarioSenac.Data.csproj"
+              "C:\\workplace\\DesenvolvedorWeb\\Back-end\\DiarioSenac\\DiarioSenac.Data\\DiarioSenac.Data.csproj": {
+                "projectPath": "C:\\workplace\\DesenvolvedorWeb\\Back-end\\DiarioSenac\\DiarioSenac.Data\\DiarioSenac.Data.csproj"
               },
-              "C:\\workplace\\DesenvolvedorWeb\\DiarioSenac\\DiarioSenac.Model\\DiarioSenac.Model.csproj": {
-                "projectPath": "C:\\workplace\\DesenvolvedorWeb\\DiarioSenac\\DiarioSenac.Model\\DiarioSenac.Model.csproj"
+              "C:\\workplace\\DesenvolvedorWeb\\Back-end\\DiarioSenac\\DiarioSenac.Model\\DiarioSenac.Model.csproj": {
+                "projectPath": "C:\\workplace\\DesenvolvedorWeb\\Back-end\\DiarioSenac\\DiarioSenac.Model\\DiarioSenac.Model.csproj"
               },
-              "C:\\workplace\\DesenvolvedorWeb\\DiarioSenac\\DiarioSenac.Service\\DiarioSenac.Service.csproj": {
-                "projectPath": "C:\\workplace\\DesenvolvedorWeb\\DiarioSenac\\DiarioSenac.Service\\DiarioSenac.Service.csproj"
+              "C:\\workplace\\DesenvolvedorWeb\\Back-end\\DiarioSenac\\DiarioSenac.Service\\DiarioSenac.Service.csproj": {
+                "projectPath": "C:\\workplace\\DesenvolvedorWeb\\Back-end\\DiarioSenac\\DiarioSenac.Service\\DiarioSenac.Service.csproj"
               }
             }
           }
@@ -139,14 +139,14 @@
         }
       }
     },
-    "C:\\workplace\\DesenvolvedorWeb\\DiarioSenac\\DiarioSenac.ConsoleApp\\DiarioSenac.ConsoleApp.csproj": {
+    "C:\\workplace\\DesenvolvedorWeb\\Back-end\\DiarioSenac\\DiarioSenac.ConsoleApp\\DiarioSenac.ConsoleApp.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\workplace\\DesenvolvedorWeb\\DiarioSenac\\DiarioSenac.ConsoleApp\\DiarioSenac.ConsoleApp.csproj",
+        "projectUniqueName": "C:\\workplace\\DesenvolvedorWeb\\Back-end\\DiarioSenac\\DiarioSenac.ConsoleApp\\DiarioSenac.ConsoleApp.csproj",
         "projectName": "DiarioSenac.ConsoleApp",
-        "projectPath": "C:\\workplace\\DesenvolvedorWeb\\DiarioSenac\\DiarioSenac.ConsoleApp\\DiarioSenac.ConsoleApp.csproj",
+        "projectPath": "C:\\workplace\\DesenvolvedorWeb\\Back-end\\DiarioSenac\\DiarioSenac.ConsoleApp\\DiarioSenac.ConsoleApp.csproj",
         "packagesPath": "C:\\Users\\Prog_Sis\\.nuget\\packages\\",
-        "outputPath": "C:\\workplace\\DesenvolvedorWeb\\DiarioSenac\\DiarioSenac.ConsoleApp\\obj\\",
+        "outputPath": "C:\\workplace\\DesenvolvedorWeb\\Back-end\\DiarioSenac\\DiarioSenac.ConsoleApp\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Prog_Sis\\AppData\\Roaming\\NuGet\\NuGet.Config"
@@ -161,20 +161,20 @@
           "net9.0": {
             "targetAlias": "net9.0",
             "projectReferences": {
-              "C:\\workplace\\DesenvolvedorWeb\\DiarioSenac\\DiarioSenac.Business\\DiarioSenac.Business.csproj": {
-                "projectPath": "C:\\workplace\\DesenvolvedorWeb\\DiarioSenac\\DiarioSenac.Business\\DiarioSenac.Business.csproj"
+              "C:\\workplace\\DesenvolvedorWeb\\Back-end\\DiarioSenac\\DiarioSenac.Business\\DiarioSenac.Business.csproj": {
+                "projectPath": "C:\\workplace\\DesenvolvedorWeb\\Back-end\\DiarioSenac\\DiarioSenac.Business\\DiarioSenac.Business.csproj"
               },
-              "C:\\workplace\\DesenvolvedorWeb\\DiarioSenac\\DiarioSenac.Classes\\DiarioSenac.Classes.csproj": {
-                "projectPath": "C:\\workplace\\DesenvolvedorWeb\\DiarioSenac\\DiarioSenac.Classes\\DiarioSenac.Classes.csproj"
+              "C:\\workplace\\DesenvolvedorWeb\\Back-end\\DiarioSenac\\DiarioSenac.Classes\\DiarioSenac.Classes.csproj": {
+                "projectPath": "C:\\workplace\\DesenvolvedorWeb\\Back-end\\DiarioSenac\\DiarioSenac.Classes\\DiarioSenac.Classes.csproj"
               },
-              "C:\\workplace\\DesenvolvedorWeb\\DiarioSenac\\DiarioSenac.Data\\DiarioSenac.Data.csproj": {
-                "projectPath": "C:\\workplace\\DesenvolvedorWeb\\DiarioSenac\\DiarioSenac.Data\\DiarioSenac.Data.csproj"
+              "C:\\workplace\\DesenvolvedorWeb\\Back-end\\DiarioSenac\\DiarioSenac.Data\\DiarioSenac.Data.csproj": {
+                "projectPath": "C:\\workplace\\DesenvolvedorWeb\\Back-end\\DiarioSenac\\DiarioSenac.Data\\DiarioSenac.Data.csproj"
               },
-              "C:\\workplace\\DesenvolvedorWeb\\DiarioSenac\\DiarioSenac.Model\\DiarioSenac.Model.csproj": {
-                "projectPath": "C:\\workplace\\DesenvolvedorWeb\\DiarioSenac\\DiarioSenac.Model\\DiarioSenac.Model.csproj"
+              "C:\\workplace\\DesenvolvedorWeb\\Back-end\\DiarioSenac\\DiarioSenac.Model\\DiarioSenac.Model.csproj": {
+                "projectPath": "C:\\workplace\\DesenvolvedorWeb\\Back-end\\DiarioSenac\\DiarioSenac.Model\\DiarioSenac.Model.csproj"
               },
-              "C:\\workplace\\DesenvolvedorWeb\\DiarioSenac\\DiarioSenac.Service\\DiarioSenac.Service.csproj": {
-                "projectPath": "C:\\workplace\\DesenvolvedorWeb\\DiarioSenac\\DiarioSenac.Service\\DiarioSenac.Service.csproj"
+              "C:\\workplace\\DesenvolvedorWeb\\Back-end\\DiarioSenac\\DiarioSenac.Service\\DiarioSenac.Service.csproj": {
+                "projectPath": "C:\\workplace\\DesenvolvedorWeb\\Back-end\\DiarioSenac\\DiarioSenac.Service\\DiarioSenac.Service.csproj"
               }
             }
           }
@@ -222,14 +222,14 @@
         }
       }
     },
-    "C:\\workplace\\DesenvolvedorWeb\\DiarioSenac\\DiarioSenac.Data\\DiarioSenac.Data.csproj": {
+    "C:\\workplace\\DesenvolvedorWeb\\Back-end\\DiarioSenac\\DiarioSenac.Data\\DiarioSenac.Data.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\workplace\\DesenvolvedorWeb\\DiarioSenac\\DiarioSenac.Data\\DiarioSenac.Data.csproj",
+        "projectUniqueName": "C:\\workplace\\DesenvolvedorWeb\\Back-end\\DiarioSenac\\DiarioSenac.Data\\DiarioSenac.Data.csproj",
         "projectName": "DiarioSenac.Data",
-        "projectPath": "C:\\workplace\\DesenvolvedorWeb\\DiarioSenac\\DiarioSenac.Data\\DiarioSenac.Data.csproj",
+        "projectPath": "C:\\workplace\\DesenvolvedorWeb\\Back-end\\DiarioSenac\\DiarioSenac.Data\\DiarioSenac.Data.csproj",
         "packagesPath": "C:\\Users\\Prog_Sis\\.nuget\\packages\\",
-        "outputPath": "C:\\workplace\\DesenvolvedorWeb\\DiarioSenac\\DiarioSenac.Data\\obj\\",
+        "outputPath": "C:\\workplace\\DesenvolvedorWeb\\Back-end\\DiarioSenac\\DiarioSenac.Data\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Prog_Sis\\AppData\\Roaming\\NuGet\\NuGet.Config"
@@ -244,11 +244,11 @@
           "net9.0": {
             "targetAlias": "net9.0",
             "projectReferences": {
-              "C:\\workplace\\DesenvolvedorWeb\\DiarioSenac\\DiarioSenac.Business\\DiarioSenac.Business.csproj": {
-                "projectPath": "C:\\workplace\\DesenvolvedorWeb\\DiarioSenac\\DiarioSenac.Business\\DiarioSenac.Business.csproj"
+              "C:\\workplace\\DesenvolvedorWeb\\Back-end\\DiarioSenac\\DiarioSenac.Business\\DiarioSenac.Business.csproj": {
+                "projectPath": "C:\\workplace\\DesenvolvedorWeb\\Back-end\\DiarioSenac\\DiarioSenac.Business\\DiarioSenac.Business.csproj"
               },
-              "C:\\workplace\\DesenvolvedorWeb\\DiarioSenac\\DiarioSenac.Model\\DiarioSenac.Model.csproj": {
-                "projectPath": "C:\\workplace\\DesenvolvedorWeb\\DiarioSenac\\DiarioSenac.Model\\DiarioSenac.Model.csproj"
+              "C:\\workplace\\DesenvolvedorWeb\\Back-end\\DiarioSenac\\DiarioSenac.Model\\DiarioSenac.Model.csproj": {
+                "projectPath": "C:\\workplace\\DesenvolvedorWeb\\Back-end\\DiarioSenac\\DiarioSenac.Model\\DiarioSenac.Model.csproj"
               }
             }
           }
@@ -308,14 +308,14 @@
         }
       }
     },
-    "C:\\workplace\\DesenvolvedorWeb\\DiarioSenac\\DiarioSenac.Model\\DiarioSenac.Model.csproj": {
+    "C:\\workplace\\DesenvolvedorWeb\\Back-end\\DiarioSenac\\DiarioSenac.Model\\DiarioSenac.Model.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\workplace\\DesenvolvedorWeb\\DiarioSenac\\DiarioSenac.Model\\DiarioSenac.Model.csproj",
+        "projectUniqueName": "C:\\workplace\\DesenvolvedorWeb\\Back-end\\DiarioSenac\\DiarioSenac.Model\\DiarioSenac.Model.csproj",
         "projectName": "DiarioSenac.Model",
-        "projectPath": "C:\\workplace\\DesenvolvedorWeb\\DiarioSenac\\DiarioSenac.Model\\DiarioSenac.Model.csproj",
+        "projectPath": "C:\\workplace\\DesenvolvedorWeb\\Back-end\\DiarioSenac\\DiarioSenac.Model\\DiarioSenac.Model.csproj",
         "packagesPath": "C:\\Users\\Prog_Sis\\.nuget\\packages\\",
-        "outputPath": "C:\\workplace\\DesenvolvedorWeb\\DiarioSenac\\DiarioSenac.Model\\obj\\",
+        "outputPath": "C:\\workplace\\DesenvolvedorWeb\\Back-end\\DiarioSenac\\DiarioSenac.Model\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Prog_Sis\\AppData\\Roaming\\NuGet\\NuGet.Config"
@@ -367,14 +367,14 @@
         }
       }
     },
-    "C:\\workplace\\DesenvolvedorWeb\\DiarioSenac\\DiarioSenac.Service\\DiarioSenac.Service.csproj": {
+    "C:\\workplace\\DesenvolvedorWeb\\Back-end\\DiarioSenac\\DiarioSenac.Service\\DiarioSenac.Service.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\workplace\\DesenvolvedorWeb\\DiarioSenac\\DiarioSenac.Service\\DiarioSenac.Service.csproj",
+        "projectUniqueName": "C:\\workplace\\DesenvolvedorWeb\\Back-end\\DiarioSenac\\DiarioSenac.Service\\DiarioSenac.Service.csproj",
         "projectName": "DiarioSenac.Service",
-        "projectPath": "C:\\workplace\\DesenvolvedorWeb\\DiarioSenac\\DiarioSenac.Service\\DiarioSenac.Service.csproj",
+        "projectPath": "C:\\workplace\\DesenvolvedorWeb\\Back-end\\DiarioSenac\\DiarioSenac.Service\\DiarioSenac.Service.csproj",
         "packagesPath": "C:\\Users\\Prog_Sis\\.nuget\\packages\\",
-        "outputPath": "C:\\workplace\\DesenvolvedorWeb\\DiarioSenac\\DiarioSenac.Service\\obj\\",
+        "outputPath": "C:\\workplace\\DesenvolvedorWeb\\Back-end\\DiarioSenac\\DiarioSenac.Service\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Prog_Sis\\AppData\\Roaming\\NuGet\\NuGet.Config"
@@ -389,14 +389,14 @@
           "net9.0": {
             "targetAlias": "net9.0",
             "projectReferences": {
-              "C:\\workplace\\DesenvolvedorWeb\\DiarioSenac\\DiarioSenac.Business\\DiarioSenac.Business.csproj": {
-                "projectPath": "C:\\workplace\\DesenvolvedorWeb\\DiarioSenac\\DiarioSenac.Business\\DiarioSenac.Business.csproj"
+              "C:\\workplace\\DesenvolvedorWeb\\Back-end\\DiarioSenac\\DiarioSenac.Business\\DiarioSenac.Business.csproj": {
+                "projectPath": "C:\\workplace\\DesenvolvedorWeb\\Back-end\\DiarioSenac\\DiarioSenac.Business\\DiarioSenac.Business.csproj"
               },
-              "C:\\workplace\\DesenvolvedorWeb\\DiarioSenac\\DiarioSenac.Data\\DiarioSenac.Data.csproj": {
-                "projectPath": "C:\\workplace\\DesenvolvedorWeb\\DiarioSenac\\DiarioSenac.Data\\DiarioSenac.Data.csproj"
+              "C:\\workplace\\DesenvolvedorWeb\\Back-end\\DiarioSenac\\DiarioSenac.Data\\DiarioSenac.Data.csproj": {
+                "projectPath": "C:\\workplace\\DesenvolvedorWeb\\Back-end\\DiarioSenac\\DiarioSenac.Data\\DiarioSenac.Data.csproj"
               },
-              "C:\\workplace\\DesenvolvedorWeb\\DiarioSenac\\DiarioSenac.Model\\DiarioSenac.Model.csproj": {
-                "projectPath": "C:\\workplace\\DesenvolvedorWeb\\DiarioSenac\\DiarioSenac.Model\\DiarioSenac.Model.csproj"
+              "C:\\workplace\\DesenvolvedorWeb\\Back-end\\DiarioSenac\\DiarioSenac.Model\\DiarioSenac.Model.csproj": {
+                "projectPath": "C:\\workplace\\DesenvolvedorWeb\\Back-end\\DiarioSenac\\DiarioSenac.Model\\DiarioSenac.Model.csproj"
               }
             }
           }

@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "7Arc2CE7FW8=",
+  "dgSpecHash": "pwLOZIjWtr0=",
   "success": true,
-  "projectFilePath": "C:\\workplace\\DesenvolvedorWeb\\DiarioSenac\\DiarioSenac.Classes\\DiarioSenac.Classes.csproj",
+  "projectFilePath": "C:\\workplace\\DesenvolvedorWeb\\Back-end\\DiarioSenac\\DiarioSenac.Classes\\DiarioSenac.Classes.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Prog_Sis\\.nuget\\packages\\bouncycastle.cryptography\\2.6.2\\bouncycastle.cryptography.2.6.2.nupkg.sha512",
     "C:\\Users\\Prog_Sis\\.nuget\\packages\\google.protobuf\\3.35.0\\google.protobuf.3.35.0.nupkg.sha512",
