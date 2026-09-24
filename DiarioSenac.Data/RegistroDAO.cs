@@ -42,6 +42,22 @@ public class RegistroDAO
             .FirstOrDefault(r => r.Id == id);
     }
 
+    public void AtualizarRegistro(Registro registro)
+    {
+        using var context = new DiarioSenacContext();
+        var registroExistente = context.Registros.FirstOrDefault(r => r.Id == registro.Id);
+
+        if (registroExistente is null)
+            return;
+
+        registroExistente.Titulo = registro.Titulo;
+        registroExistente.Conteudo = registro.Conteudo;
+        registroExistente.UsuarioId = registro.UsuarioId;
+        registroExistente.Data = registro.Data;
+
+        context.SaveChanges();
+    }
+
     public void RemoverRegistro(int id)
     {
         using var context = new DiarioSenacContext();

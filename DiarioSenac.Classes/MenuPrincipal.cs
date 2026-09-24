@@ -399,7 +399,15 @@ public class MenuPrincipal
 
         try
         {
-            _registroService.CadastrarRegistro(usuario, titulo, conteudo);
+            var registro = new Registro
+            {
+                Titulo = titulo,
+                Conteudo = conteudo,
+                UsuarioId = usuario.Id,
+                Data = DateTime.Now
+            };
+
+            _registroService.CadastrarRegistro(registro);
             Console.ForegroundColor = ConsoleColor.Green;
             Console.WriteLine("✓ Registro cadastrado com sucesso!");
             Console.ResetColor();

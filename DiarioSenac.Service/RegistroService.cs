@@ -12,18 +12,12 @@ public class RegistroService
     /// <summary>
     /// Cadastra um novo registro com validação em tempo real
     /// </summary>
-    public void CadastrarRegistro(Usuario usuario, string titulo, string conteudo)
+    public void CadastrarRegistro(Registro registro)
     {
-        ValidarTituloEmTempoReal(titulo);
-        ValidarConteudoEmTempoReal(conteudo);
+        ValidarTituloEmTempoReal(registro.Titulo);
+        ValidarConteudoEmTempoReal(registro.Conteudo);
 
-        Registro registro = new Registro
-        {
-            Titulo = titulo,
-            Data = DateTime.Now,
-            Conteudo = conteudo,
-            UsuarioId = usuario.Id
-        };
+        registro.Data = DateTime.Now;
 
         _registroBusiness.Validar(registro);
         _registroDAO.InserirRegistro(registro);
@@ -64,6 +58,34 @@ public class RegistroService
             return null;
 
         return registro;
+    }
+
+    /// <summary>
+    /// Atualiza um registro verificando se pertence ao usuário
+    /// </summary>
+    public void AtualizarRegistro(int registroId, int usuarioId, string? novoTitulo, string? novoConteudo)
+    {
+        Registro? registro = _registroDAO.BuscarRegistroPorId(registroId);
+
+        if (registro == null || registro.UsuarioId != usuarioId)
+            throw new ArgumentException("Registro não encontrado ou não pertence ao usuário.");
+
+        if (string.IsNullOrWhiteSpace(novoTitulo) && string.IsNullOrWhiteSpace(novoConteudo))
+            throw new ArgumentException("Informe pelo menos um campo para atualizar.");
+
+        if (!string.IsNullOrWhiteSpace(novoTitulo))
+        {
+            ValidarTituloEmTempoReal(novoTitulo);
+            registro.Titulo = novoTitulo;
+        }
+
+        if (!string.IsNullOrWhiteSpace(novoConteudo))
+        {
+            ValidarConteudoEmTempoReal(novoConteudo);
+            registro.Conteudo = novoConteudo;
+        }
+
+        _registroDAO.AtualizarRegistro(registro);
     }
 
     /// <summary>
