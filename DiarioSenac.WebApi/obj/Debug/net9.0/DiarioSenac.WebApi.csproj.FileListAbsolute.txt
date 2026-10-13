@@ -1,7 +1,6 @@
 C:\workplace\DesenvolvedorWeb\Back-end\DiarioSenac\DiarioSenac.WebApi\bin\Debug\net9.0\appsettings.Development.json
 C:\workplace\DesenvolvedorWeb\Back-end\DiarioSenac\DiarioSenac.WebApi\bin\Debug\net9.0\appsettings.json
 C:\workplace\DesenvolvedorWeb\Back-end\DiarioSenac\DiarioSenac.WebApi\bin\Debug\net9.0\DiarioSenac.WebApi.staticwebassets.endpoints.json
-C:\workplace\DesenvolvedorWeb\Back-end\DiarioSenac\DiarioSenac.WebApi\bin\Debug\net9.0\DiarioSenac.WebApi.exe
 C:\workplace\DesenvolvedorWeb\Back-end\DiarioSenac\DiarioSenac.WebApi\bin\Debug\net9.0\DiarioSenac.WebApi.deps.json
 C:\workplace\DesenvolvedorWeb\Back-end\DiarioSenac\DiarioSenac.WebApi\bin\Debug\net9.0\DiarioSenac.WebApi.runtimeconfig.json
 C:\workplace\DesenvolvedorWeb\Back-end\DiarioSenac\DiarioSenac.WebApi\bin\Debug\net9.0\DiarioSenac.WebApi.dll
@@ -61,3 +60,13 @@ C:\workplace\DesenvolvedorWeb\Back-end\DiarioSenac\DiarioSenac.WebApi\bin\Debug\
 C:\workplace\DesenvolvedorWeb\Back-end\DiarioSenac\DiarioSenac.WebApi\bin\Debug\net9.0\DiarioSenac.Business.pdb
 C:\workplace\DesenvolvedorWeb\Back-end\DiarioSenac\DiarioSenac.WebApi\bin\Debug\net9.0\DiarioSenac.Data.pdb
 C:\workplace\DesenvolvedorWeb\Back-end\DiarioSenac\DiarioSenac.WebApi\obj\Debug\net9.0\DiarioSe.418034FE.Up2Date
+C:\workplace\DesenvolvedorWeb\Back-end\DiarioSenac\DiarioSenac.WebApi\bin\Debug\net9.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
+C:\workplace\DesenvolvedorWeb\Back-end\DiarioSenac\DiarioSenac.WebApi\bin\Debug\net9.0\Microsoft.Bcl.Cryptography.dll
+C:\workplace\DesenvolvedorWeb\Back-end\DiarioSenac\DiarioSenac.WebApi\bin\Debug\net9.0\Microsoft.IdentityModel.Abstractions.dll
+C:\workplace\DesenvolvedorWeb\Back-end\DiarioSenac\DiarioSenac.WebApi\bin\Debug\net9.0\Microsoft.IdentityModel.JsonWebTokens.dll
+C:\workplace\DesenvolvedorWeb\Back-end\DiarioSenac\DiarioSenac.WebApi\bin\Debug\net9.0\Microsoft.IdentityModel.Logging.dll
+C:\workplace\DesenvolvedorWeb\Back-end\DiarioSenac\DiarioSenac.WebApi\bin\Debug\net9.0\Microsoft.IdentityModel.Protocols.dll
+C:\workplace\DesenvolvedorWeb\Back-end\DiarioSenac\DiarioSenac.WebApi\bin\Debug\net9.0\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
+C:\workplace\DesenvolvedorWeb\Back-end\DiarioSenac\DiarioSenac.WebApi\bin\Debug\net9.0\Microsoft.IdentityModel.Tokens.dll
+C:\workplace\DesenvolvedorWeb\Back-end\DiarioSenac\DiarioSenac.WebApi\bin\Debug\net9.0\System.IdentityModel.Tokens.Jwt.dll
+C:\workplace\DesenvolvedorWeb\Back-end\DiarioSenac\DiarioSenac.WebApi\bin\Debug\net9.0\DiarioSenac.WebApi.exe

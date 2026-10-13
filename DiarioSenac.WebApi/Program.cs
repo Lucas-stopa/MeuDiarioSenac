@@ -1,6 +1,7 @@
 using System.Text.Json.Serialization;
 using DiarioSenac.Model;
 using DiarioSenac.Service;
+using DiarioSenac.WebApi;
 using Microsoft.AspNetCore.Mvc;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -11,6 +12,21 @@ builder.Services.ConfigureHttpJsonOptions(options =>
 });
 
 var app = builder.Build();
+
+app.MapPost("/login/auth", ([FromBody] LoginRequest request) =>
+{
+    var usuarioService = new UsuarioService();
+    var usuario = usuarioService.Autenticar(request.Email, request.Senha);
+
+    if (usuario is null)
+        return Results.Unauthorized();
+
+    var tokenService = new TokenService(builder.Configuration);
+    var token = tokenService.GerarToken(usuario);
+
+    return Results.Ok(new { token });
+});
+
 var registrosGroup = app.MapGroup("/registros");
 
 app.MapGet("/", () => "Boa noite!");
