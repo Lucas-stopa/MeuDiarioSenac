@@ -1,0 +1,17 @@
+@baseUrl = http://localhost:5251
+
+### Autenticar um usuário já cadastrado
+POST {{baseUrl}}/login/auth
+Content-Type: application/json
+
+{
+  "email": "usuario@exemplo.com",
+  "senha": "senha1234"
+}
+
+### Defina @token com o JWT retornado pelo login
+@token = cole-o-token-aqui
+
+### Listar registros (requer autenticação Bearer)
+GET {{baseUrl}}/registros
+Authorization: Bearer {{token}}

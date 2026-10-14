@@ -23,7 +23,7 @@ public class TokenService
             throw new InvalidOperationException("A chave secreta do JWT não está configurada.");
         var expirationInHours = jwtSettings.GetValue<double>("expirationInHours");
 
-        var chaveSecretaBytes = Convert.FromBase64String(chaveSecreta);
+        var chaveSecretaBytes = Encoding.ASCII.GetBytes(chaveSecreta);
         var credenciais = new SigningCredentials(
             new SymmetricSecurityKey(chaveSecretaBytes),
             SecurityAlgorithms.HmacSha256Signature);
